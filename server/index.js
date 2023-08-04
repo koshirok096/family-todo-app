@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoute.js";
 import userRoutes from "./routes/userRoute.js";
+import invitationRoutes from './routes/invitationRoute.js'
 import todoRoutes from "./routes/todoRoute.js";
 import shoppingRoutes from "./routes/shoppingRoute.js";
 import cookieParser from "cookie-parser";
@@ -28,6 +29,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/invitation", invitationRoutes);
 app.use("/api/todo", todoRoutes);
 app.use("/api/shopping", shoppingRoutes);
 
