@@ -1,16 +1,20 @@
 import mongoose from 'mongoose';
 
 const groupSchema = new mongoose.Schema({
-  title: {
+  name: {
     type: String,
     required: true,
     default: ''
   },
-  groupUser: {
-    type: [String], 
-    required: true,
-    default: [],
-  },
+  members: [{ 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User' 
+  }],
+  // groupUser: {
+  //   type: [String], 
+  //   required: true,
+  //   default: [],
+  // },
   description: {
     type: String,
     required: true,
