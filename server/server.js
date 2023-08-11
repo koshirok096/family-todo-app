@@ -1,22 +1,22 @@
 require("dotenv").config();
-import express from "express";
-import cors from "cors";
-import { initialize, session } from "passport";
-import authRoute from "../routes/auth";
-import cookieSession from "cookie-session";
-import passportStrategy from "./passport";
+const express = require("express");
+const cors = require("cors");
+const passport = require("passport");
+const authRoute = require("./routes/authRoute");
+const cookieSession = require("cookie-session");
+const passportStrategy = require("./passport");
 const app = express();
 
 app.use(
 	cookieSession({
 		name: "session",
-		keys: ["family-app"],
+		keys: ["cyberwolve"],
 		maxAge: 24 * 60 * 60 * 100,
 	})
 );
 
-app.use(initialize());
-app.use(session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(
 	cors({
