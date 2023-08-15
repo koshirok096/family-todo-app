@@ -1,3 +1,5 @@
+// import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+// import passport from "passport";
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const passport = require("passport");
 
@@ -10,7 +12,16 @@ passport.use(
 			scope: ["profile", "email"],
 		},
 		function (accessToken, refreshToken, profile, callback) {
-			callback(null, profile);
+			console.log(accessToken, refreshToken);
+			return callback(null, profile);
 		}
+		
 	)
 );
+passport.serializeUser(function(user, done) {
+	done(null, user);
+  });
+  
+  passport.deserializeUser(function(user, done) {
+	done(null, user);
+  });

@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const passport = require("passport");
 
+
+
 router.get("/login/success", (req, res) => {
 	if (req.user) {
 		res.status(200).json({
@@ -36,3 +38,5 @@ router.get("/logout", (req, res) => {
 });
 
 module.exports = router;
+
+
